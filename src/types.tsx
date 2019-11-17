@@ -2,7 +2,6 @@ export type ValidationField = {
 	id: string,
 	value: string,
 	compareToId?: string,
-	passwordStrength?: number,
 	inputType: 'password' | 'email' | 'text',
 	validationType: 'password' | 'email' | 'compare' | 'userName',
 	isValidated: boolean,

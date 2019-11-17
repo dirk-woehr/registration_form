@@ -15,7 +15,7 @@ export default function ValidatedInput( props: {
 	const validClass = (isValidated && hasMinLength) ? ' valid' : '';
 	const isPassword = props.fieldSetting.validationType === 'password';
 	// set password score if needed
-	const passwordScore = isPassword ? <PasswordScore passwordStrength={props.fieldSetting.passwordStrength} /> : <></>;
+	const passwordScore = isPassword ? <PasswordScore password={props.fieldSetting.value} /> : <></>;
 	
 	return (
 		<div className={"input-wrapper" + inValidClass}>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ValidatedInput from './ValidatedInput';
 import LdsRoller from './LdsRoller';
 import LdsHeart from './LdsHeart';
-import { RegisterSetting, ValidationField, PassWordVariations } from './types';
+import { RegisterSetting, ValidationField } from './types';
 import './RegisterForm.css';
 import './LdsRoller.css';
 import './LdsHeart.css';
@@ -10,7 +10,7 @@ import logo from './gog_logo.png';
 
 export default function RegisterForm() {
 	// initial State
-	const setValidValues = false;
+	const setValidValues = true;
 	const initialSettings:RegisterSetting = {
 		fieldsToValidate: [
 			{
@@ -31,7 +31,6 @@ export default function RegisterForm() {
 				inputType: 'password',
 				validationType: 'password',
 				isValidated: true,
-				passwordStrength: 0,
 				placeholder: 'Please enter a password',
 				minLength: 8,
 				messages: {
@@ -89,8 +88,6 @@ export default function RegisterForm() {
 				let hasAllCharacters = validatePassword(fieldToValidate.value);
 				// set field status
 				fieldToValidate.isValidated = hasMinLength && hasAllCharacters;
-				// set password strength
-				fieldToValidate.passwordStrength = scorePassword(fieldToValidate.value);
 				break;
 			case 'compare':
 				// get field to compate to from state
@@ -121,44 +118,6 @@ export default function RegisterForm() {
 	function validatePassword(password:string) {
 		let re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/;
 		return re.test(String(password));
-	}
-
-	// score password for status bar
-	function scorePassword(password:string) {
-		let score:number = 0;
-		if (!password)
-			return score;
-	
-		// award every unique letter until 5 repetitions
-		let letters = new Map();
-		for (var i=0; i<password.length; i++) {
-			if(letters.has(password[i])) {
-				letters.set(password[i], letters.get(password[i]) + 1);
-			} else {
-				letters.set(password[i], 1);
-			}
-			score += 5.0 / letters.get(password[i]);
-		}
-		console.log(letters);
-	
-		// bonus points for mixing it up
-		var variations:PassWordVariations = {
-			digits: /\d/.test(password),
-			lower: /[a-z]/.test(password),
-			upper: /[A-Z]/.test(password),
-			nonWords: /\W/.test(password)
-		}
-	
-		let variationCount = 0;
-
-		const keys = Object.keys(variations)
-		const values:Array<boolean> = keys.map(key => Reflect.get(variations,key));
-		values.forEach( check => {
-			variationCount += check ? 1 : 0;
-		});
-    	score += (variationCount - 1) * 10;
-	
-		return score;
 	}
 
 	// pass through method for event calls from form fields
