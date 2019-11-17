@@ -1,0 +1,125 @@
+.main-wrapper {
+	padding-top: 10vh;
+}
+
+#logo-container {
+	text-align: center;
+}
+
+#logo {
+	width: 50%;
+	max-width: 250px;
+	margin-bottom: 2.5vh;
+}
+
+.form-wrapper {
+	width: 50vw;
+	margin: 0 auto;
+	background-color: rgba(0,0,0,0.82);
+	min-height: 70vh;
+	padding: 5vh;
+	border-radius: calc(var(--padding) * 2);
+	box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 960px) {
+	.form-wrapper {
+		width: calc( 100vw - 10vh);
+		margin: 0;
+		min-height: 100vh;
+		padding: 5vh;
+		border-radius: 0;
+		box-shadow: none;
+	}
+	.main-wrapper {
+		padding-top: 0;
+	}
+}
+
+.form-wrapper form, .form-wrapper form {
+	max-height: 70vh;
+	transition: all var(--slider-speed) ease-out;
+}
+
+.form-wrapper.status-sent form, .form-wrapper.status-complete form {
+	max-height: 0;
+	overflow: hidden;
+}
+
+.contact-server {
+	width: 40vw;
+	margin: 10vh auto;
+	background-color: rgba(0,0,0,0.5);
+	height: 70vh;
+	padding: 5vh;
+}
+
+.registration-success {
+	width: 40vw;
+	margin: 10vh auto;
+	background-color: rgba(0,0,0,0.5);
+	height: 70vh;
+	padding: 5vh;
+}
+
+.form-wrapper button {
+	width: 100%;
+	padding: calc( var(--padding) * 2) var(--padding);
+	background-color: var(--ci-color);
+	color: var(--ci-color-contrast-font);
+	border: none;
+	border-radius: var(--padding);
+	margin-bottom: calc( var(--padding) * 3);
+	font-size: calc( var(--padding) * 3);
+	opacity: 0.75;
+	transition: opacity var(--slider-speed) ease-out;
+	transition: box-shadow var(--slider-speed) ease-out;
+	font-family: 'Play', sans-serif;
+	outline : 0;
+
+}
+
+.form-wrapper button:hover, .form-wrapper button:focus {
+	opacity: 1;
+	box-shadow: 0px -1px 25px 0px rgba(255,94,255,1);
+	transition: box-shadow 0.1 ease-out;
+	outline : 0;
+}
+
+.form-wrapper button:active {
+	opacity: 1;
+	box-shadow: none;	
+	transition: box-shadow 0.1 ease-out;
+}
+
+.contact-server-slider, .success-slider {
+	height: 0px;
+	overflow: hidden;
+	transition: all var(--slider-speed) ease-out;
+	border-radius: calc(var(--padding) * 1.5);
+	margin-bottom: calc( var(--padding) * 3);
+}
+
+.form-wrapper.status-sent .contact-server-slider {
+	height: 30vh;
+}
+
+.form-wrapper.status-complete .success-slider {
+	height: 30vh;
+}
+
+.contact-server-wrapper, .success-wrapper {
+	background-color: var(--ci-color);
+	border-radius: calc(var(--padding) * 1.5);
+	height: 25vh;
+	text-align: center;
+	padding-top: 5vh;
+	margin-bottom: calc( var(--padding) * 3);
+}
+
+.contact-server-text, .success-text {
+	margin-top: 2vw;
+	color: var(--ci-color-contrast-font);
+	font-family: 'Play', sans-serif;
+	font-size: calc( var(--padding) * 4);
+}

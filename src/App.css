@@ -1,0 +1,21 @@
+:root {
+	--padding: 8px;
+	--ci-color: #752575;
+	--ci-color-contrast-font: #FFF;
+	--error-color: rgb(206, 0, 0);
+	--valid-color: rgb(0, 145, 36);
+	--slider-speed: 0.6s;
+	--text-area-color: #d8d8d8;;
+	--text-area-font-color: #000;
+}
+#cover {
+    background-image: url(./cover.jpg);
+    background-size: cover;
+	background-position: center top;
+	padding-bottom: 20vh;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}

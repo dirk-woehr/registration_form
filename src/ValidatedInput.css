@@ -1,0 +1,76 @@
+.input-wrapper {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	margin-bottom: calc( var(--padding) * 3);
+	border-radius: var(--padding);
+	overflow: hidden;
+}
+
+.input-border-start, .input-border-end {
+	width: calc( var(--padding) * 2);
+	background-color: var(--ci-color);
+}
+
+.input-center {
+	width: calc(100% - var(--padding) * 4);
+	background-color: var(--text-area-color);
+}
+
+.input-center input {
+	width: calc( 100% - var(--padding) * 2);
+	padding: var(--padding);
+	text-align: center;
+	border: none;
+	color: var(--error-color);
+	font-size: calc( var(--padding) * 2);
+	font-family: 'Play', sans-serif;
+	background-color: var(--text-area-color);
+	border-radius: 0;
+}
+
+.input-center input.valid {
+	color: var(--ci-color);
+}
+
+.input-center input::placeholder {
+	color: var(--ci-color);
+}
+
+.input-message-slider {
+	max-height: 0px;
+	overflow: hidden;
+	transition: all var(--slider-speed) ease-out;
+}
+
+.password-score-slider {
+	height: 0;
+	overflow: hidden;
+	transition: all var(--slider-speed) ease-out;
+}
+
+.input-wrapper.invalid .input-message-slider {
+	max-height: 100px;
+}
+
+input:focus + .input-message-slider + .password-score-slider {
+	height: calc( var(--padding) * 4);
+}
+
+.input-message-box {
+	background-color: var(--text-area-color);
+	padding: var(--padding);
+	border-top: 3px solid var(--error-color);
+	text-align: center;
+	color: var(--error-color);
+	font-family: 'Play', sans-serif;
+}
+
+.password-score-bar {
+	height: calc( var(--padding) * 2);
+}
+
+.password-score-wrapper {
+	padding: var(--padding);
+	background-color: var(--text-area-color);
+}
