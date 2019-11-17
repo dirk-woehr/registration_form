@@ -10,7 +10,7 @@ import logo from './gog_logo.png';
 
 export default function RegisterForm() {
 	// initial State
-	const setValidValues = true;
+	const setValidValues = false;
 	const initialSettings:RegisterSetting = {
 		fieldsToValidate: [
 			{
